@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { LotteryServiceService } from 'src/app/services/lottery-service.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  // constructor(private permissionsService: NgxPermissionsService) {
-  //   // ตั้งค่าสิทธิ์สำหรับ LoginComponent สำหรับผู้ใช้ทั่วไป
-  //   const userPermissions = ['user'];
-  //   this.permissionsService.loadPermissions(userPermissions);
-  // }
+  isLoggedIn: boolean = false;
+  
+  constructor(private lotteryService: LotteryServiceService,private http: HttpClient,private router: Router,private cdr: ChangeDetectorRef) { }
+  login(email: string, password: string) {
+  
+    const data = {
+      email: email,
+      password: password,
+    };
+    
+     let jsonString = JSON.stringify(data);
+
+    this.http.post(this.lotteryService.apiEndpoint+"/login", jsonString).subscribe(
+      (response: any) => {
+        // การตอบกลับเมื่อเข้าสู่ระบบสำเร็จ
+        console.log('เข้าสู่ระบบสำเร็จ:', response);
+        // ทำการนำผู้ใช้ไปยังหน้าหลักหรือทำตามที่คุณต้องการ
+        this.lotteryService.isLoggedIn = true;
+        this.router.navigate(['/home']);
+        this.cdr.detectChanges();
+      },
+      (error) => {
+        // การตอบกลับเมื่อเข้าสู่ระบบไม่สำเร็จ
+        console.error('เข้าสู่ระบบไม่สำเร็จ:', error);
+        // แสดงข้อความผิดพลาดถ้าต้องการ
+      }
+    );
+  }
 }

@@ -82,16 +82,16 @@
         />
       </mat-form-field>
       <div class="d-flex flex-wrap">
-        <mat-card class="card-body" *ngIf="lotteryResults.length > 0">
+        <!-- <mat-card class="card-body" *ngIf="lotteryResults.length > 0">
           <mat-grid-list cols="4" rowHeight="2:1">
             <mat-grid-tile *ngFor="let result of lotteryResults">
-              <!-- แสดงข้อมูลลอตเตอรี่ -->
+               แสดงข้อมูลลอตเตอรี่ 
               <div class="lottery-item">
-                <!-- <img
+                 <img
                   [src]="result"
                   alt="Lottery Image"
                   class="lottery-image"
-                /> -->
+                /> 
                 <p>งวด: {{ result.period }}</p>
                 <p>ชุด: {{ result.set_number }}</p>
                 <p>จำนวน: {{ result.ticket_number }}</p> 
@@ -100,7 +100,7 @@
               </div>
             </mat-grid-tile>
           </mat-grid-list>
-        </mat-card>
+        </mat-card> -->
       </div>
       <div class="d-flex justify-content-center">
         <mat-card-actions class="fxLayout" id="card-actions">

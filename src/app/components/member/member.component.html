@@ -45,35 +45,6 @@
       ><mat-icon>search</mat-icon>
         ค้นหาสลาก
       </button>
-
-      <!-- ตัวอย่างปุ่มเข้าสู่ระบบ -->
-      <button
-        mat-raised-button
-        color="accent"
-        style="
-          margin-right: 15px;
-          font-family: 'Noto Sans Thai', sans-serif;
-          font-family: 'Noto Sans Thai Looped', sans-serif;
-        "
-        [routerLink]="['/login']"
-        routerLinkActive="#"
-        *ngIf="!isUserLoggedIn()"
-      ><mat-icon>login</mat-icon>
-        เข้าสู่ระบบ
-      </button>
-      <button
-        mat-raised-button
-        color="accent"
-        style="
-          font-family: 'Noto Sans Thai', sans-serif;
-          font-family: 'Noto Sans Thai Looped', sans-serif;
-        "
-        [routerLink]="['/register']"
-        routerLinkActive="router-link-active"
-         *ngIf="!isUserLoggedIn()"
-      ><mat-icon>person_add</mat-icon>
-        สมัครสมาชิก
-      </button>
    
         
     </mat-toolbar>
@@ -83,18 +54,6 @@
     <mat-drawer-container autosize>
       <mat-drawer #drawer opened="true" mode="side" position="start">
         <mat-nav-list>
-          <mat-list-item>
-            <button
-              routerLink="/dashboard"
-              mat-button
-              style="
-                font-family: 'Noto Sans Thai', sans-serif;
-                font-family: 'Noto Sans Thai Looped', sans-serif;
-              "
-            >
-              <mat-icon>dashboard</mat-icon> Dashboard(Admin)
-            </button>
-          </mat-list-item>
           <mat-list-item>
             <button
               routerLink=""
@@ -140,8 +99,6 @@
                 font-family: 'Noto Sans Thai', sans-serif;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
               "
-              (click)="logout()"
-  *ngIf="isUserLoggedIn()"
             >
               <mat-icon>exit_to_app</mat-icon> ออกจากระบบ
             </button>
@@ -155,7 +112,7 @@
           <router-outlet>
            
             <app-lottery-search></app-lottery-search>
-            <app-lottery-search-result></app-lottery-search-result>
+            
             </router-outlet>
         </div>
       </mat-drawer-content>

@@ -1,0 +1,54 @@
+/* styles.css */
+
+div.content {
+    padding: 16px;
+    margin-top: 50px;
+    
+    border: 1px solid #a8a8a8; /* เพิ่มเส้นขอบกรอบ */
+    border-radius: 8px; /* เพิ่มความโค้งบริเวณรอบ */
+    
+  }
+  
+  .content > mat-card {
+    width: 100%;
+    max-width: 400px; /* เพิ่มขนาดการ์ดสูงสุด */
+    margin-bottom: 16px;
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+     /* ปรับสิ่งแวดล้อมของปุ่มในการ์ด */
+  }
+  
+  .mat-card {
+    transition: transform 0.2s, box-shadow 0.2s; /* เพิ่มการเคลื่อนไหวและเงาเงื่อนไขเมื่อเม้าส์ Hover */
+  }
+  
+  .mat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* เพิ่มเอฟเฟค Hover ให้ปุ่ม */
+  button {
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  button:hover {
+    background-color: #2196F3;
+    color: white;
+  }
+  .right-align {
+    float: right;
+  }
+  .info-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .info-text {
+    font-size: 18px; /* ปรับขนาดข้อความใหญ่ขึ้นตามที่ต้องการ */
+  }
+  

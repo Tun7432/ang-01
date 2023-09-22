@@ -16,17 +16,17 @@
       <div class="fxLayout" id="div-form-field">
         <mat-form-field appearance="outline">
           <mat-label>อีเมล์</mat-label>
-          <input type="email" matInput />
+          <input type="email" matInput #email />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>รหัสผ่าน</mat-label>
-          <input type="password" matInput />
+          <input type="password" matInput #password />
         </mat-form-field>
       </div>
     </div>
     <mat-card-actions class="fxLayout" id="card-actions">
       <button mat-flat-button class="signup-button" routerLink="/register"><mat-icon>person_add</mat-icon> สมัครสมาชิก</button>
-      <button mat-flat-button color="primary" class="login-button"><mat-icon>login</mat-icon> ล็อคอิน</button>
+      <button mat-flat-button color="primary" class="login-button" (click)="login(email.value,password.value)"><mat-icon>login</mat-icon> ล็อคอิน</button>
     </mat-card-actions>
   </mat-card>
 </div>

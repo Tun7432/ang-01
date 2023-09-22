@@ -1,19 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
-import{ HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
-import { LoginComponent } from './components/login/login.component';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { LotteryDetailComponent } from './components/lottery-detail/lottery-detail.component';
+import { LotteryHistoryComponent } from './components/lottery-history/lottery-history.component';
+import { LotterySearchResultComponent } from './components/lottery-search-result/lottery-search-result.component';
 import { LotterySearchComponent } from './components/lottery-search/lottery-search.component';
 import { ManageLotteryComponent } from './components/manage-lottery/manage-lottery.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LotteryDetailComponent } from './components/lottery-detail/lottery-detail.component';
-import { LotteryHistoryComponent } from './components/lottery-history/lottery-history.component';
-import {FormsModule} from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
+import { MaterialModule } from './material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +30,8 @@ import { HomeComponent } from './components/home/home.component';
     LotteryDetailComponent,
     LotteryHistoryComponent,
     HomeComponent,
+    LotterySearchResultComponent,
+
     
     
   ],
@@ -36,6 +42,8 @@ import { HomeComponent } from './components/home/home.component';
     MaterialModule,
     FormsModule,
     HttpClientModule,
+     MatCardModule,
+    MatButtonModule,
     // NgxPermissionsModule.forRoot()
   ],
   providers: [
