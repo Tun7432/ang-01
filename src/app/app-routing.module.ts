@@ -6,12 +6,14 @@ import { LotterySearchComponent } from './components/lottery-search/lottery-sear
 import { ManageLotteryComponent } from './components/manage-lottery/manage-lottery.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LotteryDetailComponent } from './components/lottery-detail/lottery-detail.component';
-import { LotteryHistoryComponent } from './components/lottery-history/lottery-history.component';
+
 import {HomeComponent} from './components/home/home.component';
 import { MemberComponent } from './components/member/member.component';
 import { CartComponent } from './components/cart/cart.component';
-
-
+import { PersonalInformationComponent } from './components/personal-information/personal-information.component';
+import { AdminLotteryReportComponent } from './components/admin-lottery-report/admin-lottery-report.component';
+import { PurchaseDetailComponent } from './components/purchase-detail/purchase-detail.component';
+import { PurchaseHistoryComponent } from './components/purchase-history/purchase-history.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,11 +43,7 @@ const routes: Routes = [
     component: LotteryDetailComponent,
     // canActivate: ['memberPermission'],
   },
-  {
-    path: 'lottery-history',
-    component: LotteryHistoryComponent,
-    // canActivate: ['userPermission', 'adminPermission'],
-  },
+
   {
     path: 'login',
     component: LoginComponent,
@@ -59,6 +57,26 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+    // canActivate: ['userPermission', 'adminPermission'],
+  },
+  {
+    path: 'personal',
+    component: PersonalInformationComponent,
+    // canActivate: ['userPermission', 'adminPermission'],
+  },
+  {
+    path: 'report',
+    component: AdminLotteryReportComponent,
+    // canActivate: ['userPermission', 'adminPermission'],
+  },
+  {
+    path: 'purchase-detail',
+    component: PurchaseDetailComponent,
+    // canActivate: ['userPermission', 'adminPermission'],
+  },
+  {
+    path: 'purchase-history',
+    component: PurchaseHistoryComponent,
     // canActivate: ['userPermission', 'adminPermission'],
   },
 

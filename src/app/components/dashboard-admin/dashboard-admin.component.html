@@ -33,7 +33,7 @@
         <mat-icon>home</mat-icon>
         หน้าเเรก
       </button>
-      <button
+      <!-- <button
         mat-raised-button
         [routerLink]="['/lottery-search']"
         routerLinkActive="router-link-active"
@@ -44,7 +44,7 @@
         "
       > <mat-icon>search</mat-icon>
         ค้นหาสลาก
-      </button>
+      </button> -->
     </mat-toolbar>
 
     <mat-drawer-container autosize>
@@ -69,8 +69,8 @@
               style="
                 font-family: 'Noto Sans Thai', sans-serif;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
-              "
-            >
+              " routerLink="/report"
+            > 
               <mat-icon>shopping_cart</mat-icon>รายการข้อมูลการซื้อ
             </button>
           </mat-list-item>
