@@ -128,3 +128,14 @@ mat-card-actions button.login-button:hover {
   font-family: "Noto Sans Thai Looped", sans-serif;
 }
 
+/* Styling for the success snackbar */
+.snackbar-success {
+  background-color: #4caf50; /* Green background color */
+  color: #fff; /* White text color */
+}
+
+/* styles.css */
+.error-snackbar {
+  background-color: red;
+  color: white;
+}

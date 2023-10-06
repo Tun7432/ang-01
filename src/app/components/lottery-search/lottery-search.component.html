@@ -1,114 +1,97 @@
-
- <!-- lottery-search.component.html -->
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai+Looped:wght@800;900&family=Noto+Sans+Thai:wght@300;400;900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai+Looped:wght@400;800;900&family=Noto+Sans+Thai:wght@300;400;900&display=swap");
 </style>
-<div
-  class="ktiYLN"
-  style="
-    font-family: 'Noto Sans Thai', sans-serif;
-    font-family: 'Noto Sans Thai Looped', sans-serif;
-  "
->
-  <mat-card class="card-body">
-    <div class="dJSzKI mb-1 mt-4 p-4 pt-1 text-center">
-      <span data-testid="search-box_round-date" class="responsive-font"> ลอตเตอรี่งวดวันที่ * </span>
+
+<div class="content">
+  <div class="flex-container">
+    <div class="input-box">
+      <input
+        matInput
+        [placeholder]="'' + index"
+        maxlength="1"
+        *ngFor="let index of [1, 2, 3, 4, 5, 6]; let i = index"
+        style="
+          margin-right: 15px;
+          font-family: 'Noto Sans Thai', sans-serif;
+          font-family: 'Noto Sans Thai Looped', sans-serif;
+        "
+        [name]="'input' + i"
+        #inputElement
+      />
     </div>
-    <div class="d-flex block-input flex-nowrap px-2 ps-2" id="input">
-      <mat-form-field appearance="outline">
-        <input
-          matInput
-          type="number"
-          aria-label="search0"
-          class="inputByNumPad"
-          id="input"
-          data-testid="search-box_input"
-          value="5"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input
-          matInput
-          type="number"
-          aria-label="search1"
-          class="inputByNumPad"
-          data-testid="search-box_input"
-          value="6"
-          id="input"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input
-          matInput
-          type="number"
-          aria-label="search2"
-          class="inputByNumPad"
-          data-testid="search-box_input"
-          value="1"
-          id="input"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input
-          matInput
-          type="number"
-          aria-label="search3"
-          class="inputByNumPad"
-          data-testid="search-box_input"
-          value="6"
-          id="input"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input
-          matInput
-          type="number"
-          aria-label="search4"
-          class="inputByNumPad"
-          data-testid="search-box_input"
-          value="5"
-          id="input"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <input
-          matInput
-          type="number"
-          aria-label="search5"
-          class="inputByNumPad"
-          data-testid="search-box_input"
-          value=""
-          id="input"
-        />
-      </mat-form-field>
-      <div class="d-flex flex-wrap">
-        <!-- <mat-card class="card-body" *ngIf="lotteryResults.length > 0">
-          <mat-grid-list cols="4" rowHeight="2:1">
-            <mat-grid-tile *ngFor="let result of lotteryResults">
-               แสดงข้อมูลลอตเตอรี่ 
-              <div class="lottery-item">
-                 <img
-                  [src]="result"
-                  alt="Lottery Image"
-                  class="lottery-image"
-                /> 
-                <p>งวด: {{ result.period }}</p>
-                <p>ชุด: {{ result.set_number }}</p>
-                <p>จำนวน: {{ result.ticket_number }}</p> 
-                <p>ราคา: {{ result.price }}</p>
-                <p>วันเวลา: {{ result.created_at }}</p>
-              </div>
-            </mat-grid-tile>
-          </mat-grid-list>
-        </mat-card> -->
-      </div>
-      <div class="d-flex justify-content-center">
-        <mat-card-actions class="fxLayout" id="card-actions">
-          <button mat-flat-button color="primary" class="login-button" id="login-button">
-            <mat-icon>search</mat-icon> ค้นหาเลย !
+    <button
+      mat-raised-button
+      color="warn"
+      style="
+        margin-right: 15px;
+        font-family: 'Noto Sans Thai', sans-serif;
+        font-family: 'Noto Sans Thai Looped', sans-serif;
+      "
+      (click)="search(getInputValues())"
+    >
+      <mat-icon>search</mat-icon>ค้นหา
+    </button>
+    <div class="period">
+      <label>งวดที่ <span>*</span></label>
+      <select [(ngModel)]="period" (change)="onPeriodSelect()">
+        <option disabled="disabled" value=""></option>
+        <option *ngFor="let periodItem of periodList" [value]="periodItem">{{ periodItem }}</option>
+      </select>
+    </div>
+    
+    <div class="set">
+      <label>ชุดที่ <span>*</span></label>
+      <select [(ngModel)]="set_number" (change)="onSet_numberSelect()">
+        <option disabled="disabled" value=""></option>
+        <option *ngFor="let set_number of set_numberList" [value]="set_number">{{ set_number }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutGap="66px">
+    <div
+      fxFlex="20%"
+      fxFlex.xs="100%"
+      fxFlex.sm="33%"
+      *ngFor="let result of lotteryResults"
+    >
+      <mat-card class="mat-elevation-z4" id="fxLayout">
+        <mat-card-header>
+          <mat-card-title>สลากกินแบ่ง</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="info-box">
+            <p class="info-text">
+              เลขฉลาก : <span>{{ result.ticket_number }}</span>
+            </p>
+            <p class="left-align">
+              งวดที่: {{ result.period }}
+              <span class="right-align">ชุด : {{ result.set_number }} </span>
+            </p>
+            <p class="left-align">ราคา : {{ result.price }}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="card-actions">
+          <button
+            mat-flat-button
+            color="primary"
+            (click)="openLotteryDetailDialog(result)"
+          >
+            <mat-icon>looks</mat-icon>ดูสลาก
+          </button>
+          <button
+            mat-flat-button
+            color="accent"
+            (click)="addToCart(result)"
+            *ngIf="lotteryService.isLoggedIn"
+          >
+            <mat-icon>add_shopping_cart</mat-icon>ใส่ตะกร้า
           </button>
         </mat-card-actions>
-      </div> 
+      </mat-card>
     </div>
-  </mat-card>
+    <div *ngIf="lotteryResults.length === 0" class="no-results">
+      ไม่พบสลากที่ค้นหา
+    </div>
+  </div>
 </div>

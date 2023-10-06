@@ -52,7 +52,7 @@
         <mat-nav-list>
           <mat-list-item>
             <button
-              mat-button
+              mat-button [routerLink]="['/manage-lottery']" routerLinkActive="router-link-active" 
               style="
                 font-family: 'Noto Sans Thai', sans-serif;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
@@ -96,7 +96,7 @@
 
       <mat-drawer-content>
         <div style="text-align: center; min-height: 600px">
-          <router-outlet> </router-outlet>
+          <app-manage-lottery></app-manage-lottery>
           <!-- เพิ่มส่วนที่ต้องการเเสดง -->
         </div>
       </mat-drawer-content>

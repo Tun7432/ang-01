@@ -1,0 +1,71 @@
+/* Common styles for all screen sizes */
+span[data-testid="search-box_round-date"] {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #000000;
+  font-size: 2vw;
+}
+
+.ktiYLN {
+  font-family: "Noto Sans Thai", sans-serif;
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+ 
+}
+
+input.inputByNumPad {
+  font-size: 35px;
+  margin-top: 15px;
+  padding-inline-start: 80px;
+  padding-bottom: 15px;
+  width: 100%;
+  
+}
+
+/* Hide number input spin buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Styles for screens with a maximum width of 768px (e.g., tablets) */
+  .ktiYLN {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  input.inputByNumPad {
+    font-size: 24px; /* Adjust input font size for smaller screens */
+  }
+
+  button#btn-search-now {
+    font-size: 16px; /* Adjust button font size for smaller screens */
+  }
+
+  /* You can add more responsive styles as needed */
+}
+
+@media (max-width: 480px) {
+  /* Styles for screens with a maximum width of 480px (e.g., mobile phones) */
+  .ktiYLN {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  input.inputByNumPad {
+    font-size: 20px; /* Adjust input font size for smaller screens */
+  }
+
+  button#btn-search-now {
+    font-size: 14px; /* Adjust button font size for smaller screens */
+  }
+}
+span.responsive-font {
+  padding-left: 100px;
+}

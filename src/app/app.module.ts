@@ -1,22 +1,34 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import{ HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
-import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './components/login/login.component';
-import { LotteryDetailComponent } from './components/lottery-detail/lottery-detail.component';
-import { LotteryHistoryComponent } from './components/lottery-history/lottery-history.component';
-import { LotterySearchResultComponent } from './components/lottery-search-result/lottery-search-result.component';
+import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
 import { LotterySearchComponent } from './components/lottery-search/lottery-search.component';
 import { ManageLotteryComponent } from './components/manage-lottery/manage-lottery.component';
 import { RegisterComponent } from './components/register/register.component';
-import { MaterialModule } from './material/material.module';
+import { LotteryDetailComponent } from './components/lottery-detail/lottery-detail.component';
+import { LotteryHistoryComponent } from './components/lottery-history/lottery-history.component';
+import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { MemberComponent } from './components/member/member.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MemberDataService } from './services/member-data.service';
+import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
+import { CartComponent } from './components/cart/cart.component';
+
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+
+import { AdminEditComponent } from './components/admin-edit/admin-edit.component';
+
+
+
+
+
 
 
 @NgModule({
@@ -30,9 +42,17 @@ import { MaterialModule } from './material/material.module';
     LotteryDetailComponent,
     LotteryHistoryComponent,
     HomeComponent,
-    LotterySearchResultComponent,
+    MemberComponent,
+    MyDialogComponent,
+    CartComponent,
+   
+    AdminEditComponent,
+  
+   
+  
+ 
 
-    
+ 
     
   ],
   imports: [
@@ -41,13 +61,16 @@ import { MaterialModule } from './material/material.module';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    FlexLayoutModule,
     HttpClientModule,
-     MatCardModule,
-    MatButtonModule,
+    NgxSpinnerModule
     // NgxPermissionsModule.forRoot()
   ],
   providers: [
+    MemberDataService,
+    NgxSpinnerService
     // {
+
     //   provide: 'adminPermission',
     //   useClass: NgxPermissionsGuard,
     //   multi: true,
@@ -66,6 +89,7 @@ import { MaterialModule } from './material/material.module';
     //   deps: [NgxPermissionsService], // ระบุ NgxPermissionsService ของคุณ
     // },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ 
 })
 export class AppModule { }

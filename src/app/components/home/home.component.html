@@ -10,7 +10,7 @@
   </head>
   <body>
     <mat-toolbar color="primary" class="mat-elevation-z8">
-      <button (click)="drawer.toggle()" mat-icon-button>
+      <button  (click)="drawer.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
       <span id="text-span"
@@ -28,25 +28,12 @@
           margin-right: 40px;
           font-family: 'Noto Sans Thai', sans-serif;
           font-family: 'Noto Sans Thai Looped', sans-serif;
-        " [routerLink]="['/home']" 
+        " (click)="refreshPage()" 
       ><mat-icon>home</mat-icon>
         หน้าเเรก
       </button>
-     
 
-      <button
-        mat-raised-button
-       [routerLink]="['/lottery-search']" routerLinkActive="router-link-active" 
-        style="
-          margin-right: 15px;
-          font-family: 'Noto Sans Thai', sans-serif;
-          font-family: 'Noto Sans Thai Looped', sans-serif;
-        "
-      ><mat-icon>search</mat-icon>
-        ค้นหาสลาก
-      </button>
-
-      <!-- ตัวอย่างปุ่มเข้าสู่ระบบ -->
+   
       <button
         mat-raised-button
         color="accent"
@@ -56,8 +43,8 @@
           font-family: 'Noto Sans Thai Looped', sans-serif;
         "
         [routerLink]="['/login']"
-        routerLinkActive="#"
-        *ngIf="!isUserLoggedIn()"
+       
+    
       ><mat-icon>login</mat-icon>
         เข้าสู่ระบบ
       </button>
@@ -70,7 +57,7 @@
         "
         [routerLink]="['/register']"
         routerLinkActive="router-link-active"
-         *ngIf="!isUserLoggedIn()"
+    
       ><mat-icon>person_add</mat-icon>
         สมัครสมาชิก
       </button>
@@ -90,7 +77,7 @@
               style="
                 font-family: 'Noto Sans Thai', sans-serif;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
-              "
+              " 
             >
               <mat-icon>dashboard</mat-icon> Dashboard(Admin)
             </button>
@@ -102,7 +89,7 @@
               style="
                 font-family: 'Noto Sans Thai', sans-serif;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
-              "
+              "  (click)="account_login()"
             >
               <mat-icon>account_circle</mat-icon> ข้อมูลส่วนตัว
             </button>
@@ -114,7 +101,7 @@
               style="
                 font-family: 'Noto Sans Thai', sans-serif;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
-              "
+              "  (click)="account_login()"
             >
               <mat-icon>shopping_cart</mat-icon> คำสั่งซื้อ
             </button>
@@ -127,23 +114,9 @@
               style="
                 font-family: 'Noto Sans Thai', sans-serif;
                 font-family: 'Noto Sans Thai Looped', sans-serif;
-              "
+              "  (click)="account_login()"
             >
-              <mat-icon>list_alt</mat-icon>คลังสลาก
-            </button>
-          </mat-list-item>
-        
-          <mat-list-item>
-            <button
-              mat-button
-              style="
-                font-family: 'Noto Sans Thai', sans-serif;
-                font-family: 'Noto Sans Thai Looped', sans-serif;
-              "
-              (click)="logout()"
-  *ngIf="isUserLoggedIn()"
-            >
-              <mat-icon>exit_to_app</mat-icon> ออกจากระบบ
+              <mat-icon>list_alt</mat-icon>ตะกร้า
             </button>
           </mat-list-item>
         </mat-nav-list>
@@ -155,7 +128,7 @@
           <router-outlet>
            
             <app-lottery-search></app-lottery-search>
-            <app-lottery-search-result></app-lottery-search-result>
+        
             </router-outlet>
         </div>
       </mat-drawer-content>

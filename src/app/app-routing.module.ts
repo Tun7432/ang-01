@@ -8,6 +8,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { LotteryDetailComponent } from './components/lottery-detail/lottery-detail.component';
 import { LotteryHistoryComponent } from './components/lottery-history/lottery-history.component';
 import {HomeComponent} from './components/home/home.component';
+import { MemberComponent } from './components/member/member.component';
+import { CartComponent } from './components/cart/cart.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,6 +51,18 @@ const routes: Routes = [
     component: LoginComponent,
     // canActivate: ['userPermission', 'adminPermission'],
   },
+  {
+    path: 'member',
+    component: MemberComponent,
+    // canActivate: ['userPermission', 'adminPermission'],
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    // canActivate: ['userPermission', 'adminPermission'],
+  },
+
+
  
 ];
 
